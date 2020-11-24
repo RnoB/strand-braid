@@ -13,11 +13,18 @@ failure = "0.1"
 failure_derive = "0.1"
 log = "0.4"
 env_logger = "0.8"
-tokio-serial = "4.3.3"
+# tokio-serial = "4.3.3" # OLD
+tokio-serial = {git="https://github.com/raffber/tokio-serial", rev="d474dbb82edb9282af30cc8447c1c62152137bcc"}
+
 futures = "0.3"
-tokio = {version="0.3", default-features=false, features=["rt","macros","time","stream"]}
-tokio-util = {version="0.4", features=["codec"]}
-bytes = "0.5"
+tokio = {version="0.3", default-features=false, features=["rt","rt-multi-thread","macros","time","stream"]}
+tokio-util = {git="https://github.com/tokio-rs/tokio", features=["net","codec"]} # next after 0.5.0
+bytes = "0.6"
 mini-rxtx = {version="0.1", features=["std"]}
 parking_lot = "0.11"
-mio-serial = { version = "3.3.1", default-features = false }
+# mio-serial = { version = "3.3.1", default-features = false }
+mio-serial = { git = "https://github.com/raffber/mio-serial", default-features = false, rev="4cd9f29b127d5c9c0337f7a5d654194da4eb9d67"}
+
+[patch.crates-io]
+# yew-tincture = {git="https://drandrewstraw@dev.azure.com/drandrewstraw/yew-tincture/_git/yew-tincture", rev="e835164fa9ced144811b314625a1df43759ea3e7"}
+mio-serial = { git = "https://github.com/raffber/mio-serial", default-features = false, rev="4cd9f29b127d5c9c0337f7a5d654194da4eb9d67"}
